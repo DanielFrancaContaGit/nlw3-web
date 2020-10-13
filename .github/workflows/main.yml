@@ -1,0 +1,23 @@
+
+name: ESLint action
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    # Installs all the packages
+    - name: Install dependencies and packages
+      run: npm install
+
+    # Runs the lint script
+    - name: Run the lint Script
+      run: npm run lint
